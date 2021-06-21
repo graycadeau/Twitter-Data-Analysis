@@ -17,12 +17,11 @@ class Clean_Tweets:
         df = df[df['polarity'] != 'polarity']
         
         return df
+
     def drop_duplicate(self, df:pd.DataFrame)->pd.DataFrame:
         """
         drop duplicate rows
         """
-
-        print(df)
         
         df = df.drop_duplicates()
         
@@ -43,10 +42,13 @@ class Clean_Tweets:
         convert columns like polarity, subjectivity, retweet_count
         favorite_count etc to numbers
         """
-        df['polarity'] = pd.----
-        
-        ----
-        ----
+        df['polarity'] = pd.to_numeric(df.polarity)
+
+        df['subjectivity'] = pd.to_numeric(df.subjectivity)
+
+        df['retweet_count'] = pd.to_numeric(df.retweet_count)
+
+        df['favorite_count'] = pd.to_numeric(df.favorite_count)
         
         return df
     
